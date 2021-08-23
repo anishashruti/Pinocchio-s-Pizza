@@ -1,0 +1,18 @@
+{% extends "orders/base.html" %}
+{% block content%}
+<style>
+    *{margin: 0; padding: 0;}
+    body{color: rgb(245, 222, 173);font-size: 25px;}
+</style>
+    <h1>Add your toppings here!</h1>
+    <div class="container" >
+        <form>{% csrf_token %}
+            {%for t in toppings %}
+            <div class="checkbox"  id="myCheck" >
+                <label><input type="checkbox" value="{{t.name}}" class="lead">{{t.name}}</label>
+              </div>
+        {%endfor%}
+          </form>
+          <button class="btn btn-primary">Submit</button>
+       </div> 
+{% endblock content %}

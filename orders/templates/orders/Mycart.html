@@ -1,0 +1,49 @@
+{% extends "orders/base.html" %}
+{% load static %}
+{% block content%}
+    <style>
+            *{margin: 0; padding: 0;}
+            body{color: rgb(196, 148, 17);}
+    </style>
+    <h1>My cart</h1>
+        <div class="col-8">
+            <table class="table table-dark table-hover" >
+                <thead >
+                    <tr >
+                        <th>Name</th> 
+                        <th>Size</th>
+                        <th>Toppings</th>
+                        <th></th>
+                        <th>Price</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for order in Order2%}
+                                <tr>
+                                <td> {{ order.name }} </td>
+                                <td>{{order.size}}</td>
+                                <td>
+                                    {% if order.category == 'Sicilian pizza' or order.category == 'Regular Pizza'%}
+                                    <td style="text-align: center;"><a href="{% url 'toppings' order.category order.name  %}"><img class='plus' height="30"  src="{% static "images/pizza.png" %}"></a></td>
+                                    {% else %}
+
+                                        <a> None </a>
+                                        <td></td>
+                                    {% endif%}
+                                </td>
+                                <td> </td>
+                                <td>${{order.price}}<a href="{% url 'delete' order.category order.size order.name order.price %}"> <img class='minus' height="25"  src="{% static "images/minus.png" %}"></a></td>
+                                </tr>                               
+                        {% endfor %}                        
+                </tbody>
+            </table>
+            <script>
+                function multipleFunc() {
+                   document.getElementById("mySelect").multiple = true;
+                }
+             </script>
+            <a class="btn btn-secondary btn-lg btn-block" href="{% url 'checkout'  %}">Checkout with a credit card</a>
+        </div>
+    <img style="margin-left:45%;" height="255" src="{% static "images/cart1.gif" %}" alt="cart">    
+{% endblock content %}

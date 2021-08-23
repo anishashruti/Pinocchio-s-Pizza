@@ -1,0 +1,30 @@
+{% extends "orders/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+<style>
+        *{margin: 0; padding: 0;}
+    body{color: antiquewhite;font-size:large;}
+    .form-wrap{ background-color:rgba(22, 34, 51, 0.959);color: whitesmoke;
+                 left: 20%;padding: 40px 30px;
+                  border: solid; border-color: black; border-spacing: 10;}
+
+    input{width: 100%; background-color: grey ; border: 1px solid #fff; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px; color: #fff;}
+</style>
+    <div class="form-wrap"> 
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                        Register here it's free!
+                </legend>
+                {{ form | crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-info" type="submit"> Sign up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">Already have an account?<a class="ml-2" href="{% url 'login' %}">Sign in</a></small>
+        </div>
+    </div>
+{% endblock content %}

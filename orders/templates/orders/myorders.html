@@ -1,0 +1,34 @@
+{% extends "orders/base.html" %}
+{% load static %}
+{% block content%}
+<style>
+        body{color: antiquewhite;font-size: large;}
+</style>
+<div>
+    <h1>Your cart</h1>
+    <div class="col-md-12">     
+            <table class="table table-dark table-hover">
+                <thead >
+                    <tr >
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for S in orders %}
+                            <tr>
+                            <td>{{ S.name }} </td>
+                            <td>${{S.price}}</td>
+                            <td>{{S.size}}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+  
+    </div>
+    <img style="margin-left:45%;" height="255" src="{% static "images/check.gif" %}" alt="cart">    
+</div>
+
+
+{% endblock content %}
