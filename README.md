@@ -8,7 +8,7 @@ Menu.html,subs.html,pizza.html: contails all the list of all the menu items
 Lists all the  orders placed by particular user(customer)
 Myorder.html:Lists all the  orders placed by all users for the admin sake
 
-I have used **Stripe api** to complete the checkout process
+I have used **Brain Tree API** to complete the checkout process
 
 I have also utilised the Django’s built-in users and authentication system to simplify the process of logging users in and out.
 
@@ -27,3 +27,5 @@ Requirements:
 - Viewing Orders: Site administrators should have access to a page where they can view any orders that have already been placed.
 
 - Personal Touch: Integrating with the Stripe API to allow users to actually use a credit card to make a purchase during checkout.
+- 
+![home](https://raw.githubusercontent.com/anishashruti/Pinocchio-s-Pizza/main/home.PNG)
